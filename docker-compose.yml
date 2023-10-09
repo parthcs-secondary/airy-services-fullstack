@@ -125,7 +125,7 @@ services:
         - mysql-db-inventory-data:/var/lib/mysql
         - mysql-db-inventory-conf:/etc/mysql/my.cnf
       environment:
-        - MYSQL_ROOT_PASSWORD="root"
+        - MYSQL_ROOT_PASSWORD="Pass@123"
       networks:
         - airy
     #order
@@ -138,7 +138,7 @@ services:
         - mysql-db-order-data:/var/lib/mysql
         - mysql-db-order-conf:/etc/mysql/my.cnf
       environment:
-        - MYSQL_ROOT_PASSWORD="root"     
+        - MYSQL_ROOT_PASSWORD="Pass@123"     
       networks:
         - airy
     #authorization
@@ -151,7 +151,7 @@ services:
         - mysql-db-authorization-data:/var/lib/mysql
         - mysql-db-authorization-conf:/etc/mysql/my.cnf
       environment:
-        - MYSQL_ROOT_PASSWORD="root"
+        - MYSQL_ROOT_PASSWORD="Pass@123"
       networks:
         - airy
     #product
