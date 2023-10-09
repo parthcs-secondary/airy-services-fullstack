@@ -8,7 +8,7 @@ docker build -t e-commerce-backend-product-service-v2 -f product-service/Dockerf
 docker build -t e-commerce-backend-service-registry-v2 -f service-registry/Dockerfile ./service-registry/.
 
 
-if [[ $? -eq 0 ]]; then
+if [ $? -eq 0 ]; then
         echo "Build completed. Please check images with cmd 'docker images'"
 
 else

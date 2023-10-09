@@ -1,0 +1,9 @@
+com/airy/ecom/inventoryservice/model/dto/InventoryReqRes.class
+com/airy/ecom/inventoryservice/InventoryServiceApplication.class
+com/airy/ecom/inventoryservice/repository/InventoryRepository.class
+com/airy/ecom/inventoryservice/model/Inventory.class
+com/airy/ecom/inventoryservice/model/dto/InventoryResponse$InventoryResponseBuilder.class
+com/airy/ecom/inventoryservice/model/dto/InventoryResponse.class
+com/airy/ecom/inventoryservice/service/InventoryService.class
+com/airy/ecom/inventoryservice/controller/InventoryController.class
+com/airy/ecom/inventoryservice/model/dto/InventoryReqRes$InventoryReqResBuilder.class

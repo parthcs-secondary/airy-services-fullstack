@@ -1,0 +1,14 @@
+/home/parth/docker-testing/repositories/airy-services-fullstack/order-service/src/main/java/com/airy/ecom/ordersservice/controller/OrderElementsController.java
+/home/parth/docker-testing/repositories/airy-services-fullstack/order-service/src/main/java/com/airy/ecom/ordersservice/repository/OrdersRepository.java
+/home/parth/docker-testing/repositories/airy-services-fullstack/order-service/src/main/java/com/airy/ecom/ordersservice/OrdersServiceApplication.java
+/home/parth/docker-testing/repositories/airy-services-fullstack/order-service/src/main/java/com/airy/ecom/ordersservice/services/OrderService.java
+/home/parth/docker-testing/repositories/airy-services-fullstack/order-service/src/main/java/com/airy/ecom/ordersservice/services/OrderElementService.java
+/home/parth/docker-testing/repositories/airy-services-fullstack/order-service/src/main/java/com/airy/ecom/ordersservice/model/dto/OrderReqRes.java
+/home/parth/docker-testing/repositories/airy-services-fullstack/order-service/src/main/java/com/airy/ecom/ordersservice/model/Order.java
+/home/parth/docker-testing/repositories/airy-services-fullstack/order-service/src/main/java/com/airy/ecom/ordersservice/config/OAuthResourceServerConfig.java
+/home/parth/docker-testing/repositories/airy-services-fullstack/order-service/src/main/java/com/airy/ecom/ordersservice/model/OrderElements.java
+/home/parth/docker-testing/repositories/airy-services-fullstack/order-service/src/main/java/com/airy/ecom/ordersservice/model/dto/inventory/InventoryResponse.java
+/home/parth/docker-testing/repositories/airy-services-fullstack/order-service/src/main/java/com/airy/ecom/ordersservice/repository/OrderElementsRepository.java
+/home/parth/docker-testing/repositories/airy-services-fullstack/order-service/src/main/java/com/airy/ecom/ordersservice/controller/OrdersController.java
+/home/parth/docker-testing/repositories/airy-services-fullstack/order-service/src/main/java/com/airy/ecom/ordersservice/model/dto/OrderElementReqRes.java
+/home/parth/docker-testing/repositories/airy-services-fullstack/order-service/src/main/java/com/airy/ecom/ordersservice/config/WebClientConfig.java
