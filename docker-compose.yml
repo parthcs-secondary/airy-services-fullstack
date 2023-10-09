@@ -1,0 +1,188 @@
+version: '3.8'
+services:
+
+#FRONTEND-SERVICES
+    # e-commerce-frontend:
+    #   image: parthkarad/e-commerce-frontend-v2:latest
+    #   hostname: airy-shop.com
+    #   ports:
+    #     - "3000:80"
+    #   networks:
+    #     - airy
+    #   depends_on:
+    #     - e-commerce-backend
+
+#Backend-Services
+    #API GATEWAY
+    e-commerce-backend-api-gateway:
+      image: parthkarad/e-commerce-backend-api-gateway-v2:latest
+      hostname: airy-api-gateway
+      ports:
+        - "8091:8091"
+      environment:
+        - SERVER_PORT=8091
+      volumes:
+        - api-gateway:/app
+      networks:
+        - airy
+      depends_on:
+        - e-commerce-backend-service-registry
+
+    #AUTHORIZATION SERVICE
+    e-commerce-backend-authorization-service:
+      image: parthkarad/e-commerce-backend-authorization-service-v2:latest
+      hostname: airy-authorization-service
+      ports:
+        - "8090:8090"
+      environment:
+        - SERVER_PORT=8090
+      volumes:
+        - authorization-service:/app
+      networks:
+        - airy
+      depends_on:
+        - e-commerce-backend-service-registry
+        - e-commerce-backend-api-gateway
+
+    #SERVICE REGISTRY
+    e-commerce-backend-service-registry:
+      image: parthkarad/e-commerce-backend-service-registry-v2:latest
+      hostname: airy-service-registry
+      ports:
+        - "8095:8095"
+      environment:
+        - SERVER_PORT=8095
+      volumes:
+        - service-registry:/app
+      networks:
+        - airy
+
+    #INVENTORY-SERVICE
+    e-commerce-backend-inventory-service:
+      image: parthkarad/e-commerce-backend-inventory-service-v2:latest
+      hostname: airy-inventory-service
+      ports:
+        - "8092:8092"
+      environment:
+        - SERVER_PORT=8092
+      volumes:
+        - inventory-service:/app
+      networks:
+        - airy
+      depends_on:
+        - mysql-db-inventory
+        - mysql-db-order
+        - mysql-db-authorization
+        - mongo-db-product
+        - e-commerce-backend-service-registry
+
+    #ORDER SERVICE
+    e-commerce-backend-order-service:
+      image: parthkarad/e-commerce-backend-order-service-v2:latest
+      hostname: airy-order-service
+      ports:
+        - "8093:8093"
+      environment:
+        - SERVER_PORT=8093
+      volumes:
+        - order-service:/app
+      networks:
+        - airy
+      depends_on:
+        - mysql-db-inventory
+        - mysql-db-order
+        - mysql-db-authorization
+        - mongo-db-product
+        - e-commerce-backend-service-registry
+
+    #PRODUCT-SERVICE
+    e-commerce-backend-product-service:
+      image: parthkarad/e-commerce-backend-product-service-v2:latest
+      hostname: airy-product-service
+      ports:
+        - "8094:8094"
+      environment:
+        - SERVER_PORT=8094
+      volumes:
+        - product-service:/app
+      networks:
+        - airy
+      depends_on:
+        - mysql-db-inventory
+        - mysql-db-order
+        - mysql-db-authorization
+        - mongo-db-product
+        - e-commerce-backend-service-registry
+
+#DATABASES
+    #inventory
+    mysql-db-inventory:
+      image: mysql
+      hostname: mysql-db-inventory
+      ports:
+        - 3306:3306
+      volumes:
+        - mysql-db-inventory-data:/var/lib/mysql
+        - mysql-db-inventory-conf:/etc/mysql/my.cnf
+      environment:
+        - MYSQL_ROOT_PASSWORD="root"
+      networks:
+        - airy
+    #order
+    mysql-db-order:
+      image: mysql
+      hostname: mysql-db-order
+      ports:
+        - 3307:3307
+      volumes:
+        - mysql-db-order-data:/var/lib/mysql
+        - mysql-db-order-conf:/etc/mysql/my.cnf
+      environment:
+        - MYSQL_ROOT_PASSWORD="root"     
+      networks:
+        - airy
+    #authorization
+    mysql-db-authorization:
+      image: mysql
+      hostname: mysql-db-authorization
+      ports:
+        - 3308:3308
+      volumes:
+        - mysql-db-authorization-data:/var/lib/mysql
+        - mysql-db-authorization-conf:/etc/mysql/my.cnf
+      environment:
+        - MYSQL_ROOT_PASSWORD="root"
+      networks:
+        - airy
+    #product
+    mongo-db-product:
+      image: mongo
+      hostname: mongo-db-product
+      ports:
+        - 27017:27017
+      volumes:
+        - mongo-db-product-data:/data/db
+        - mongo-db-product-conf:/data/configdb
+      networks:
+        - airy
+volumes:
+    api-gateway:
+    service-registry:
+    order-service:
+    inventory-service:
+    authorization-service:
+    product-service:
+#database volumes:
+    mysql-db-inventory-data:
+    mysql-db-authorization-data:
+    mysql-db-order-data:
+    mongo-db-product-data:
+    mysql-db-inventory-conf:
+    mysql-db-authorization-conf:
+    mysql-db-order-conf:
+    mongo-db-product-conf:
+
+  
+networks:
+  airy:
+    name: airy
