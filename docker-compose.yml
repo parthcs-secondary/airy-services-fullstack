@@ -58,6 +58,7 @@ services:
         - airy
 
     #INVENTORY-SERVICE
+    # server port 0 mentioned in app prop 
     e-commerce-backend-inventory-service:
       image: parthkarad/e-commerce-backend-inventory-service-v2:latest
       hostname: airy-inventory-service
@@ -84,7 +85,7 @@ services:
         - "8082:8082"
       environment:
         - SERVER_PORT=8082
-        - spring.datasource.url=jdbc:mysql://mysql-db-order:3306/algosneakers?allowPublicKeyRetrieval=true
+        # - spring.datasource.url=jdbc:mysql://mysql-db-order:3306/algosneakers?allowPublicKeyRetrieval=true
       volumes:
         - order-service:/app
       networks:
@@ -118,8 +119,8 @@ services:
 #DATABASES
     #inventory
     mysql-db-inventory:
+      container_name: mysql-db-inventory
       image: mysql
-      hostname: mysql-db-inventory
       ports:
         - 3307:3307
       volumes:
@@ -132,13 +133,13 @@ services:
         - airy
     #order
     mysql-db-order:
+      container_name: mysql-db-order
       image: mysql
-      # hostname: mysql-db-order
       ports:
         - 3306:3306
-      volumes:
-        - mysql-db-order-data:/var/lib/mysql
-        - mysql-db-order-conf:/etc/mysql/my.cnf
+      # volumes:
+      #   - mysql-db-order-data:/var/lib/mysql
+      #   - mysql-db-order-conf:/etc/mysql/my.cnf
       environment:
         - MYSQL_ROOT_PASSWORD=pass123
         - MYSQL_TCP_PORT=3306
