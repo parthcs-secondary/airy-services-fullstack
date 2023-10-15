@@ -1,7 +1,0 @@
-/home/parth/docker-testing/repositories/airy-services-fullstack/inventory-service/src/main/java/com/airy/ecom/inventoryservice/model/Inventory.java
-/home/parth/docker-testing/repositories/airy-services-fullstack/inventory-service/src/main/java/com/airy/ecom/inventoryservice/service/InventoryService.java
-/home/parth/docker-testing/repositories/airy-services-fullstack/inventory-service/src/main/java/com/airy/ecom/inventoryservice/InventoryServiceApplication.java
-/home/parth/docker-testing/repositories/airy-services-fullstack/inventory-service/src/main/java/com/airy/ecom/inventoryservice/repository/InventoryRepository.java
-/home/parth/docker-testing/repositories/airy-services-fullstack/inventory-service/src/main/java/com/airy/ecom/inventoryservice/model/dto/InventoryReqRes.java
-/home/parth/docker-testing/repositories/airy-services-fullstack/inventory-service/src/main/java/com/airy/ecom/inventoryservice/controller/InventoryController.java
-/home/parth/docker-testing/repositories/airy-services-fullstack/inventory-service/src/main/java/com/airy/ecom/inventoryservice/model/dto/InventoryResponse.java
